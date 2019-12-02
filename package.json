@@ -1,0 +1,16 @@
+{
+  "name": "customer-cli",
+  "version": "1.0.0",
+  "description": "CRUD cli interface for customer db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "nodejs",
+    "commander"
+  ],
+  "author": "bijayee-saswata",
+  "license": "ISC"
+}
