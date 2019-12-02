@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const model = require('./schema');
+const dotenv = require('dotenv');
+dotenv.config();
 //connect to mlab
-const db = mongoose.connect('mongodb://bg:test123@ds037611.mlab.com:37611/customers',{
+const db = mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds037611.mlab.com:37611/customers`,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=>{
@@ -12,19 +14,18 @@ const db = mongoose.connect('mongodb://bg:test123@ds037611.mlab.com:37611/custom
 const addCustomer = (customer) => {
     model.create(customer).then(cu =>{
         console.info('New Customer Added');
-        db.close();
     })
+    .catch(err => console.error(err));
 }
 //find customer
 const findCustomer = (name) =>{
     const s = name.toLowerCase();
-    console.info(s);
     model.find({$or: [{firstName: s}, {lastName: s}]})
     .then(cu =>{
         console.info(cu);
-        console,info(`${cu.length} matches.`);
-        db.close();
+        console.info(`${cu.length} matches.`);
     })
+    .catch(err => console.error(err))
 }
 
 module.exports = {
