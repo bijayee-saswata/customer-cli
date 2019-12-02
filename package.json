@@ -4,7 +4,7 @@
   "description": "CRUD cli interface for customer db",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "cli",
@@ -12,5 +12,11 @@
     "commander"
   ],
   "author": "bijayee-saswata",
-  "license": "ISC"
+  "git": "https://github.com/bijayee-saswata/customer-cli",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "inquirer": "^7.0.0",
+    "mongoose": "^5.7.13"
+  }
 }
